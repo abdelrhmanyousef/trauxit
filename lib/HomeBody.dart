@@ -86,11 +86,19 @@ class HomeBody extends StatelessWidget {
         Expanded(
           child: ListView(
             children: [
-              Card(),
+              Card(
+                  company: "Company A-Pickup",
+                  loction: "Loction1",
+                  ml: "300 ML",
+                  price: r"$500"),
               SizedBox(
                 height: 30,
               ),
-              Card(),
+              Card(
+                  company: "Company B-Pickup",
+                  loction: "Loction2",
+                  ml: "500 ML",
+                  price: r"$600"),
             ],
           ),
         ),
@@ -100,7 +108,16 @@ class HomeBody extends StatelessWidget {
 }
 
 class Card extends StatelessWidget {
-  const Card({super.key});
+  const Card(
+      {super.key,
+      required this.company,
+      required this.loction,
+      required this.price,
+      required this.ml});
+  final String company;
+  final String loction;
+  final String price;
+  final String ml;
 
   @override
   Widget build(BuildContext context) {
@@ -159,7 +176,7 @@ class Card extends StatelessWidget {
                               ),
                             ),
                           ),
-                          const Column(
+                          Column(
                             children: [
                               Text(
                                 "distanc ",
@@ -190,14 +207,14 @@ class Card extends StatelessWidget {
                                     height: 80,
                                   ),
                                   Text(
-                                    "Company X-Delivery",
+                                    company,
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                   Text(
-                                    "Loction 1",
+                                    loction,
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
@@ -218,13 +235,13 @@ class Card extends StatelessWidget {
                   const SizedBox(
                     width: 30,
                   ),
-                  const Column(
+                  Column(
                     children: [
                       SizedBox(
                         height: 35,
                       ),
                       Text(
-                        "300 ML",
+                        ml,
                         style: TextStyle(
                             color: Colors.orange,
                             fontSize: 45,
@@ -289,7 +306,7 @@ class Card extends StatelessWidget {
                       width: 70,
                     ),
                     Text(
-                      r"$600",
+                      price,
                       style: TextStyle(
                           fontSize: 30,
                           color: Colors.orange,
